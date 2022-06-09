@@ -75,4 +75,4 @@ def getStockList():
         'rebound': 1.5,  
         'crack': 2.5,}
 
-    return stocks
+    return [stocks, blacklist, new_words]
