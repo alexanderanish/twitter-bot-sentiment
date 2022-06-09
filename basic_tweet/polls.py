@@ -92,13 +92,14 @@ def create_poll_2(data):
         
         denom=(100* float(i[2]))+(100* float(i[4]))
         if denom == 0:
-            tweetTXT=f'''What is your sentmiments on ${stock}? 
-#WallstreetBets current sentiment is #Neutral. #{stock}  #StockWatch #WallStreetMooners'''
+            tweetTXT=f'''${stock} sentiment is currently #Neutral. 
+What is your sentmiment on ${stock}?'''
+
         else:
             bull=round(((100*float(i[4]))/denom)*100,1)
             bear=round(((100* float(i[2]))/denom)*100,1)
-            tweetTXT=f'''What is your sentmiments on ${stock}? 
-#WallstreetBets current sentiment is: {bear}% #Bearish | {bull}% #Bullish. #{stock} #StockWatch #WallStreetMooners'''
+            tweetTXT=f''' ${stock} sentiment is currently: {bear}% #Bearish | {bull}% #Bullish.
+What is your sentmiments on ${stock}?'''
 
             #filename=sentimentPlotImage(bear, bull, stock)
 
