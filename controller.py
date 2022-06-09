@@ -118,6 +118,22 @@ def insertTickerDB(data):
 
     print("inserted into db")
 
+def getTodayTweetsSenti():
+
+    tday = datetime.datetime.now()
+
+    numTday = int(tday.strftime("%w"))
+
+    stocknumber={0:[0,1,23],1:[4,5,6,7],2:[8,9,10,11],3:[12,13,14,15],4:[16,17,18,19]}
+
+    StockData= Polls["StockData"]
+
+    dataToTweet=StockData.find({"tweetDay":numTday},{"_id":0, "ticker": 1})
+
+    items_df = DataFrame(dataToTweet)
+
+    return items_df.to_dict()
+
 #text to tweet
 ##tweetInput="""The best stock & crypto sentiment. Join Wall Street Mooners! Video here: 
 ##http://youtu.be/tJt-1H6apd8
