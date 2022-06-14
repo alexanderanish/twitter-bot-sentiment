@@ -14,3 +14,10 @@ In this example I use a list of stock symbols to tweet polls based on trending s
 5. 
 
 always tweet 9:15am eastern time
+
+15 9 * * 1-5 (eastern m-f)
+35 11 * * 1-5 (utc m-f)
+
+15 9 * * * TZ="America/New_York" /usr/bin/python3 /home/ubuntu/wsb-tweet-bot/twitter-bot-sentiment/controller.py
+18 30 * * * /usr/bin/python3 /home/ubuntu/wsb-tweet-bot/twitter-bot-sentiment/cron_test.py
+*/10 * * * * /usr/bin/python script.py
