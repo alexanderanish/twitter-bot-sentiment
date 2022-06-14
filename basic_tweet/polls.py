@@ -5,6 +5,8 @@ import requests
 import base64
 import pandas as pd
 
+import datetime
+
 from requests_oauthlib import OAuth1
 
 from config.credential import *
@@ -144,8 +146,8 @@ What is your sentmiments on ${stock}?'''
         }
         TweetLogs.insert_one(logData)
         #print(res)
-
-    print("Done Tweeting!")
+    tday = datetime.datetime.now()
+    print("Done Tweeting!",tday)
    
    
 
