@@ -3,6 +3,7 @@
 import json
 import requests
 import base64
+import pandas as pd
 
 from requests_oauthlib import OAuth1
 
@@ -73,7 +74,7 @@ def create_poll(data):
 
     print("Done Tweeting!")
 
-def create_poll_2(data):
+def create_poll_2(listStock):
     ''' Creates a Twitter poll using the given question and options '''
     options=["Bearish", "Neutral", "Bullish"]
     #print(len(data["ticker"]))
@@ -87,17 +88,28 @@ def create_poll_2(data):
 
     TweetLogs= Polls["TweetLogs"]
 
-    for i in data:
-        stock=i[1]
+    df = pd.DataFrame()
+
+    df = pd.read_csv('data/df.csv')
+
+    a = df.iloc[listStock]
+
+
+    #print(a)
+
+    for index, row in a.iterrows():
+        stock=row['stock']
+
+        #print(stock)
         
-        denom=(100* float(i[2]))+(100* float(i[4]))
+        denom=(100* float(row['Bearish']))+(100* float(row['Bullish']))
         if denom == 0:
             tweetTXT=f'''${stock} sentiment is currently #Neutral. 
 What is your sentmiment on ${stock}?'''
 
         else:
-            bull=round(((100*float(i[4]))/denom)*100,1)
-            bear=round(((100* float(i[2]))/denom)*100,1)
+            bull=round(((100*float(row['Bullish']))/denom)*100,1)
+            bear=round(((100* float(row['Bearish']))/denom)*100,1)
             tweetTXT=f''' ${stock} sentiment is currently: {bear}% #Bearish | {bull}% #Bullish.
 What is your sentmiments on ${stock}?'''
 
@@ -142,4 +154,5 @@ if __name__ == '__main__':
     #options=["Bearish", "Neutral", "Bullish"]
     #create_poll(question, options)
 
+    #create_poll_2([4, 5, 6, 7])
     pass

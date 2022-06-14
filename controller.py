@@ -124,15 +124,30 @@ def getTodayTweetsSenti():
 
     numTday = int(tday.strftime("%w"))
 
-    stocknumber={0:[0,1,23],1:[4,5,6,7],2:[8,9,10,11],3:[12,13,14,15],4:[16,17,18,19]}
+    stocknumber={1:[1,2,3,4],2:[5,6,7,8],3:[9,10,11,12],4:[13,14,15,16],5:[17,18,19,20]}
 
-    StockData= Polls["StockData"]
 
-    dataToTweet=StockData.find({"tweetDay":numTday},{"_id":0, "ticker": 1})
+    if numTday == 1:
+        findTrendingSentiment()
+        
 
-    items_df = DataFrame(dataToTweet)
+    if numTday <= 5 and numTday > 0:
+        out=stocknumber[int(numTday)]
+        return out
+    else:
+        pass
 
-    return items_df.to_dict()
+
+
+    ##Polls = get_database()
+
+    ##StockData= Polls["StockData"]
+
+    ##dataToTweet=StockData.find({"tweetDay":numTday},{"_id":0, "ticker": 1})
+
+    ##items_df = DataFrame(dataToTweet)
+
+    ##return items_df.to_dict()
 
 #text to tweet
 ##tweetInput="""The best stock & crypto sentiment. Join Wall Street Mooners! Video here: 
@@ -161,19 +176,26 @@ def getTodayTweetsSenti():
 
 
 if __name__ == '__main__':
-    trendingStock=findTrendingSentiment()
+    ##trendingStock=findTrendingSentiment()
     ##trendingStock="yes"
 
     #print(getTodayTweets())
 
-    if trendingStock == "yes":
+    trendingStock=getTodayTweetsSenti()
 
-        file = open('data/df.csv')
-        csvreader = csv.reader(file)
-        header = []
-        header = next(csvreader)
 
-        create_poll_2(csvreader)
+
+    #file = open('data/df.csv')
+    #csvreader = csv.reader(file)
+    #header = []
+    #header = next(csvreader)
+
+    #print(len(csvreader.readlines()))
+
+    #
+    create_poll_2(trendingStock)
+
+
 
 
 
