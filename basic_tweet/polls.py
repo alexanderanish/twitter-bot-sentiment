@@ -94,7 +94,11 @@ def create_poll_2(listStock):
 
     df = pd.read_csv('data/df.csv')
 
+    #print(len(df.index), listStock)
+
     a = df.iloc[listStock]
+
+    
 
 
     #print(a)

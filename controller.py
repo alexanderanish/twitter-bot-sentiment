@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import datetime
 import csv
+from tkinter import N
 from pandas import DataFrame
 
 #import latestTweet module
@@ -125,7 +126,7 @@ def getTodayTweetsSenti():
 
     numTday = int(tday.strftime("%w"))
 
-    stocknumber={1:[1,2,3,4],2:[5,6,7,8],3:[9,10,11,12],4:[13,14,15,16],5:[17,18,19,20]}
+    stocknumber={1:[0,1,2,3],2:[4,5,6,7],3:[8,9,10,11],4:[12,13,14,15],5:[16,17,18,19]}
 
 
     if numTday == 1:
