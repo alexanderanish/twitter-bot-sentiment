@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import datetime
 import csv
-from tkinter import N
+#from tkinter import N
 from pandas import DataFrame
 
 #import latestTweet module
