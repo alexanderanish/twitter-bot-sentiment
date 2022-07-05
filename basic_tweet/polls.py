@@ -111,6 +111,7 @@ def create_poll_2(listStock):
         denom=(100* float(row['Bearish']))+(100* float(row['Bullish']))
         if denom == 0:
             tweetTXT=f'''${stock} sentiment is currently #Neutral. 
+
 wallstreetmooners.com
 youtu.be/tJt-1H6apd8
 
@@ -123,6 +124,7 @@ What is your sentmiments on ${stock}?'''
             bull=round(((100*float(row['Bullish']))/denom)*100,1)
             bear=round(((100* float(row['Bearish']))/denom)*100,1)
             tweetTXT=f''' ${stock} sentiment is currently: {bear}% #Bearish | {bull}% #Bullish.
+
 wallstreetmooners.com
 youtu.be/tJt-1H6apd8
 
