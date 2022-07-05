@@ -36,8 +36,8 @@ def findTrendingSentiment():
     ups = 20       # define # of upvotes, post is considered if upvotes exceed this #
     limit = 10      # define the limit, comments 'replace more' limit
     upvotes = 2     # define # of upvotes, comment is considered if upvotes exceed this #
-    picks = 4     # define # of picks here, prints as "Top ## picks are:"
-    picks_ayz = 4   # define # of picks for sentiment analysis
+    picks = 10     # define # of picks here, prints as "Top ## picks are:"
+    picks_ayz = 10   # define # of picks for sentiment analysis
     
     tempholder=getStockList()
     stocks, blacklist, new_words= tempholder[0], tempholder[1], tempholder[2]

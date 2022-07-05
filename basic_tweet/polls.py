@@ -117,6 +117,14 @@ What is your sentmiment on ${stock}?'''
             bull=round(((100*float(row['Bullish']))/denom)*100,1)
             bear=round(((100* float(row['Bearish']))/denom)*100,1)
             tweetTXT=f''' ${stock} sentiment is currently: {bear}% #Bearish | {bull}% #Bullish.
+wallstreetmooners.com
+youtu.be/tjl-1H6apd8
+
+#stocks #StockMarket
+#StockWatch #StockNews
+#Cryptos #cryptocurrency
+#cryptocurrencies
+#wallstreetmooners
 What is your sentmiments on ${stock}?'''
 
             #filename=sentimentPlotImage(bear, bull, stock)
