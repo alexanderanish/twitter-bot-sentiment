@@ -10,3 +10,5 @@ __pycache__/
 df.csv
 
 .csv
+
+cron_test.sh
